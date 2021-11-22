@@ -1,6 +1,8 @@
 package W1.Kolekcje;
 
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 // zad w1. Stworz liste imion i znajdz wszystkie na niej duplikaty
 // zad w2. Stworz dwie listy z liczbami i wypisz elementy wspolne z tych dwóch list
@@ -46,7 +48,10 @@ public class Main {
 //        System.out.println(getBestTallToAgeRatioPerson(lista3));
 //
 //        // zad 9
+//        System.out.println(returnPersonList());
+//
 //        List<Person> list4 = sortPersonList(returnPersonList());
+//
 //        System.out.println(list4);
 
 //        // zad 10
@@ -54,13 +59,39 @@ public class Main {
 //        List<String> list5 = returnPalindrome();
 //        System.out.println(list5);
 
-          // zad 11
-        System.out.println(sortString("LALA"));
+        // zad 11
+//        System.out.println(sortString("LALA"));
+        ArrayList<String> lista12 = getStrings();
+        System.out.println(lista12);
+        Map<String, List<String>> lista13 = getlistaMap2(lista12);
+        System.out.println(lista13);
 
 //        // zad 12
 //        List<Person> list6 = getPersonList(returnPersonList());
 //        System.out.println(list6);
 //        System.out.println(changeOrder(list6));
+
+
+//        List<String> list7 =personList(returnPersonList());
+//        System.out.println(list7);
+//
+//        List<String> list8 = checkPersonList2(list7);
+//        System.out.println(list8);
+//
+//
+//
+//
+//
+//
+//        List<String> list10 = new ArrayList<>();
+//        list10.add("Anna");
+//        list10.add("Jan");
+//        list10.add("Monika");
+//
+//
+//
+//        List<String> list9 = list7.stream().distinct().sorted().collect(Collectors.toList());
+//        System.out.println(list9);
 
 
     }
@@ -194,7 +225,7 @@ public class Main {
     }
 
     // zad 10 Z listy znajdz wszystkie palindromy  kajak
-    public static List<String> returnPalindrome(){
+    public static List<String> returnPalindrome() {
 
         ArrayList<String> arraylist1 = new ArrayList<String>();
         arraylist1.add("Kajak");
@@ -218,9 +249,9 @@ public class Main {
         return arraylist2;
     }
 
-    public static boolean checkIfPalindrome(String s){
-        for (int i = 0; i < s.length()/2; i++) {
-            if(Character.toLowerCase(s.charAt(i))!=Character.toLowerCase(s.charAt(s.length()-( i+1)))){
+    public static boolean checkIfPalindrome(String s) {
+        for (int i = 0; i < s.length() / 2; i++) {
+            if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(s.length() - (i + 1)))) {
                 return false;
             }
         }
@@ -228,21 +259,82 @@ public class Main {
     }
 
     // zad 12 Masz liste z zad 2 zamien kolejnosc elementow od tylu
-    public static List<Person> changeOrder(List<Person> list){
+    public static List<Person> changeOrder(List<Person> list) {
         List<Person> newList = new ArrayList<Person>();
         Iterator<Person> iter = list.listIterator();
-        int size =list.size();
+        int size = list.size();
         System.out.println(size);
-        for (int i = size-1; i>=0; i--) {
+        for (int i = size - 1; i >= 0; i--) {
             newList.add(list.get(i));
         }
         return newList;
     }
 
+
+
+    // zad ?? lista duplikatów >> przygotuj imiona
+    public static List<String> personList(List<Person> list) {
+        List<String> lista = new ArrayList<String>();
+        Iterator<Person> iter = list.iterator();
+        Person temp = null;
+        while (iter.hasNext()) {
+            temp = iter.next();
+            lista.add(temp.getImie());
+        }
+        return lista;
+    }
+
+    // zad ?? lista duplikatów >> znajdź duplikaty
+    public static List<String> checkPersonList(List<String> list) {
+        List<String> lista = new ArrayList<>();
+
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = 0; j < list.size(); j++) {
+                if (list.get(j).equals(list.get(i)) && i != j)
+                    if (!lista.contains(list.get(j))) {
+                        lista.add(list.get(j));
+                    }
+            }
+        }
+        return lista;
+    }
+
+    // zad ?? lista duplikatów >> znajdź duplikaty foreach >> dopytać
+    public static List<String> checkPersonList2(List<String> list) {
+        List<String> lista = new ArrayList<>();
+        for (String i : list) {
+            for (String j : list) {
+                if (!i.equals(j)) {
+                    if (!lista.contains(j)/* drugi warunek??*/) {
+                        lista.add(j);
+                    }
+                }
+            }
+        }
+        return lista;
+    }
+
+    // zad 11 Dodawaj na mape elementy i jesli dany element jest anagramem jakiegos klucza
+    public static Map<String, List<String>> getlistaMap2(ArrayList<String> lista) {
+        List<String> list;
+        Map<String, List<String>> mapa = new TreeMap<>();
+        for (String e : lista) {
+            if (!mapa.containsKey(sortString(e))) {
+                list = new ArrayList<>();
+                list.add(e);
+                mapa.put(sortString(e), list);
+            }
+            else {
+                mapa.get(sortString(e)).add(e);
+            }
+        }
+        return mapa;
+    }
+
     // zad 11 Dodawaj na mape elementy i jesli dany element jest anagramem jakiegos klucza
     public static String sortString(String s1) {
         char[] charArray = s1.toCharArray();
-        String string = " ";
+        StringBuilder string = new StringBuilder(" ");
         for (int i = 0; i < charArray.length; i++) {
             for (int j = i + 1; j < charArray.length; j++) {
                 if (charArray[i] >= charArray[j]) {
@@ -251,9 +343,24 @@ public class Main {
                     charArray[j] = m;
                 }
             }
-            string = string + charArray[i];
+            string.append(charArray[i]);
         }
-        return string;
+        return string.toString();
     }
+
+    // zad 11 Dodawaj na mape elementy i jesli dany element jest anagramem jakiegos klucza
+    public static ArrayList<String> getStrings() {
+        ArrayList<String> lista = new ArrayList<>();
+        lista.add("LALA");
+        lista.add("ABCD");
+        lista.add("CDBA");
+        lista.add("ABDC");
+        lista.add("ALA");
+        lista.add("LLAA");
+        lista.add("ALAL");
+        lista.add("AAL");
+        return lista;
+    }
+
 
 }

@@ -13,8 +13,8 @@ class MyJPanel extends JPanel{
         super.paintComponent(g);
 
         int howManySquares =8;
-        int width =60;
-        int height =60;
+        int width =100;
+        int height =1000;
         int gapW = 20; // oś x przesunięcie
         int gapH =120; // oś y przesunięcie
         int gapW2 =gapW;

@@ -8,14 +8,29 @@ import javax.swing.JFrame;
 public class Main {
 
     public static void main(String[] args) {
-        JFrame ramka = new JFrame("Chess board");
-        ramka.setVisible(true);
-        ramka.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ramka.add(new JPanel2());
-        ramka.setSize(1000,1000);
-
-        ramka.pack();
+        chessBoard();
+        //house();
 
 
     }
+
+
+    public static void chessBoard(){
+        JFrame ramka = new JFrame("Chess board");
+        ramka.setVisible(true);
+        ramka.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ramka.add(new JPanel2(8,50,100,100));
+        ramka.pack();
+
+    }
+
+    public static void house(){
+        JFrame ramka = new JFrame("Chess board");
+        ramka.setVisible(true);
+        ramka.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ramka.add(new JPanel3(800,800,200,100,200,10));
+
+        ramka.pack();
+    }
+
 }
