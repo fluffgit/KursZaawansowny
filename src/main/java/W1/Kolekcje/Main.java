@@ -61,6 +61,8 @@ public class Main {
 
         // zad 11
 //        System.out.println(sortString("LALA"));
+
+
         ArrayList<String> lista12 = getStrings();
         System.out.println(lista12);
         Map<String, List<String>> lista13 = getlistaMap2(lista12);
@@ -362,5 +364,14 @@ public class Main {
         return lista;
     }
 
-
+    // zad 11 Dodawaj na mape elementy i jesli dany element jest anagramem jakiegos klucza
+    public static boolean checkIfWordAreAnagrams(String s1, String s2){
+        String news1 =sortString(s1);
+        String news2 =sortString(s2);
+        if(news1.equals(news2)){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
