@@ -1,8 +1,6 @@
 package W1.Kolekcje;
 
 import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 // zad w1. Stworz liste imion i znajdz wszystkie na niej duplikaty
 // zad w2. Stworz dwie listy z liczbami i wypisz elementy wspolne z tych dwóch list
@@ -24,12 +22,12 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
 
-        List<Person> listaList = getPersonList(returnPersonList());
-        Set<Person> listaSet = getPersonSet(returnPersonList());
-        Map<Integer, Person> listaMap = getlistaMap();
-
-        convertListToSet(listaList);
-        convertSetToList(listaSet);
+//        List<Person> listaList = getPersonList(returnPersonList());
+//        Set<Person> listaSet = getPersonSet(returnPersonList());
+//        Map<Integer, Person> listaMap = getlistaMap();
+//
+//        convertListToSet(listaList);
+//        convertSetToList(listaSet);
         // zad 4
 //    printMap(listaMap);
 
@@ -60,12 +58,12 @@ public class Main {
 //        System.out.println(list5);
 
         // zad 11
-//        System.out.println(sortString("LALA"));
-
-
+//        System.out.println(sortString("LALA").get(0));
+//        System.out.println(sortString("LALA").get(1));
+//
         ArrayList<String> lista12 = getStrings();
         System.out.println(lista12);
-        Map<String, List<String>> lista13 = getlistaMap2(lista12);
+        Map<String, List<String>> lista13 = getlistaMap3(lista12);
         System.out.println(lista13);
 
 //        // zad 12
@@ -263,15 +261,13 @@ public class Main {
     // zad 12 Masz liste z zad 2 zamien kolejnosc elementow od tylu
     public static List<Person> changeOrder(List<Person> list) {
         List<Person> newList = new ArrayList<Person>();
-        Iterator<Person> iter = list.listIterator();
-        int size = list.size();
+        int size = list.size()-1;
         System.out.println(size);
-        for (int i = size - 1; i >= 0; i--) {
+        for (int i = size; i >= 0; i--) {
             newList.add(list.get(i));
         }
         return newList;
     }
-
 
 
     // zad ?? lista duplikatów >> przygotuj imiona
@@ -316,27 +312,11 @@ public class Main {
         return lista;
     }
 
-    // zad 11 Dodawaj na mape elementy i jesli dany element jest anagramem jakiegos klucza
-    public static Map<String, List<String>> getlistaMap2(ArrayList<String> lista) {
-        List<String> list;
-        Map<String, List<String>> mapa = new TreeMap<>();
-        for (String e : lista) {
-            if (!mapa.containsKey(sortString(e))) {
-                list = new ArrayList<>();
-                list.add(e);
-                mapa.put(sortString(e), list);
-            }
-            else {
-                mapa.get(sortString(e)).add(e);
-            }
-        }
-        return mapa;
-    }
 
     // zad 11 Dodawaj na mape elementy i jesli dany element jest anagramem jakiegos klucza
     public static String sortString(String s1) {
         char[] charArray = s1.toCharArray();
-        StringBuilder string = new StringBuilder(" ");
+        StringBuilder string = new StringBuilder();
         for (int i = 0; i < charArray.length; i++) {
             for (int j = i + 1; j < charArray.length; j++) {
                 if (charArray[i] >= charArray[j]) {
@@ -350,10 +330,13 @@ public class Main {
         return string.toString();
     }
 
+
     // zad 11 Dodawaj na mape elementy i jesli dany element jest anagramem jakiegos klucza
     public static ArrayList<String> getStrings() {
         ArrayList<String> lista = new ArrayList<>();
         lista.add("LALA");
+        lista.add("LALA");
+        lista.add("LLAA");
         lista.add("ABCD");
         lista.add("CDBA");
         lista.add("ABDC");
@@ -364,14 +347,40 @@ public class Main {
         return lista;
     }
 
+
     // zad 11 Dodawaj na mape elementy i jesli dany element jest anagramem jakiegos klucza
-    public static boolean checkIfWordAreAnagrams(String s1, String s2){
-        String news1 =sortString(s1);
-        String news2 =sortString(s2);
-        if(news1.equals(news2)){
-            return true;
-        }else {
-            return false;
+    public static Map<String, List<String>> getlistaMap3(ArrayList<String> lista) {
+        Map<String, List<String>> map = new HashMap<>();
+        String tempKey2;
+        boolean addNewMapKey = true;
+        for (String listElement : lista) {
+            if (!map.isEmpty()) {
+                for (String tempKey1 : map.keySet()) {
+                    if(areTheSame(listElement,tempKey1)){
+                        List<String> list = new ArrayList<>(map.get(tempKey1));
+                        list.add(listElement);
+                        map.put(tempKey1, list);
+                        addNewMapKey = false;
+                        break;
+                    } else {
+                        addNewMapKey = true;
+                    }
+                }
+            }
+
+            if (addNewMapKey) {
+                tempKey2 = listElement;
+                List<String> list2 = new ArrayList<>();
+                list2.add(tempKey2);
+                map.put(tempKey2, list2);
+            }
         }
+        return map;
     }
+
+    // zad 11 Dodawaj na mape elementy i jesli dany element jest anagramem jakiegos klucza
+    public static boolean areTheSame(String s1, String s2){
+        return sortString(s1).equals(sortString(s2));
+    }
+
 }

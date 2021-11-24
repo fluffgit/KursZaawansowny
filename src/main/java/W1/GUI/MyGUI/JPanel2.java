@@ -7,7 +7,7 @@ public class JPanel2 extends JPanel {
 
 
 
-    private static final boolean layout = true;
+
     private int howManySquares;
     private int width;
     private int height;
@@ -72,7 +72,7 @@ public class JPanel2 extends JPanel {
     }
 
     private int setHeight() {
-        return gapW*2+height*howManySquares ;
+        return gapH*2+height*howManySquares ;
 
     }
 

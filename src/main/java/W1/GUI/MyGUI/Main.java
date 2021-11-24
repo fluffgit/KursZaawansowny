@@ -19,7 +19,7 @@ public class Main {
         JFrame ramka = new JFrame("Chess board");
         ramka.setVisible(true);
         ramka.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ramka.add(new JPanel2(8,50,100,100));
+        ramka.add(new JPanel2(8,50,100,20));
         ramka.pack();
 
     }
