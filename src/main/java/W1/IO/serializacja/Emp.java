@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 public class Emp implements Serializable {
 
-
-
     public int a;
     public int b;
     public String name;

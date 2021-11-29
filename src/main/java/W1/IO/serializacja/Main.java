@@ -31,7 +31,7 @@ public class Main {
 
     private static List<Emp> deserial() {
         List<Emp> lista = new ArrayList<>();
-        String filename = "shubham.txt";
+        String filename = "log.txt";
         try {
             // czytanie z pliku
             FileInputStream file = new FileInputStream(filename);
@@ -49,24 +49,13 @@ public class Main {
         return lista;
     }
 
-
-    public static List<Emp>  creatList(){
-        List<Emp> list = new ArrayList<>();
-        Emp object = new Emp("Robert", 20, 2, 1000);
-        Emp object2 = new Emp("Anna", 200, 20, 1);
-        Emp object3 = new Emp("Kamil", 200, 20, 2);
-        list.add(object);
-        list.add(object2);
-        list.add(object3);
-        return list;
-
-    }
-
     public static List<Emp>  creatListScanner(List<Emp> list) throws Exception {
 
         int i =0;
         Scanner scanner = new Scanner(System.in);
-        while (i<1){
+        System.out.println(" how many user you want add?");
+        int howMany =Integer.parseInt(scanner.nextLine());
+        while (i<howMany){
             if(scanner.hasNextLine()) {
                 list.add(readUsersFromFile(scanner.nextLine()));
                 i++;
@@ -86,7 +75,7 @@ public class Main {
 
 
     public static List<Emp>  serial(List<Emp> objects){
-        String filename = "shubham.txt";
+        String filename = "log.txt";
         try {
             // zapis
             FileOutputStream file = new FileOutputStream(filename);
