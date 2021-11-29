@@ -37,9 +37,6 @@ public class Main {
             FileInputStream file = new FileInputStream(filename);
             ObjectInputStream in = new ObjectInputStream(file);
             lista = (ArrayList<Emp>)in.readObject();
-
-
-
             in.close();
             file.close();
         }
@@ -47,11 +44,8 @@ public class Main {
             System.out.println("IOException is caught");
         }
         catch (ClassNotFoundException ex) {
-            System.out.println("ClassNotFoundException" +
-                    " is caught");
+            System.out.println("ClassNotFoundException");
         }
-
-
         return lista;
     }
 
@@ -77,7 +71,6 @@ public class Main {
                 list.add(readUsersFromFile(scanner.nextLine()));
                 i++;
             }
-
         }
         return list;
     }
@@ -88,10 +81,7 @@ public class Main {
         String age = split[1];
         String a = split[2];
         String b = split[3];
-
-
         return new Emp(name,Integer.parseInt(age),Integer.parseInt(a),Integer.parseInt(b));
-
     }
 
 
@@ -111,31 +101,6 @@ public class Main {
         return objects;
     }
 
-    private static List<Emp> deserialAndAdd() {
-        List<Emp> lista = new ArrayList<>();
-        String filename = "shubham.txt";
-        try {
-            // czytanie z pliku
-            FileInputStream file = new FileInputStream(filename);
-            ObjectInputStream in = new ObjectInputStream(file);
-            lista = (ArrayList<Emp>)in.readObject();
-
-
-
-            in.close();
-            file.close();
-        }
-        catch (IOException ex) {
-            System.out.println("IOException is caught");
-        }
-        catch (ClassNotFoundException ex) {
-            System.out.println("ClassNotFoundException" +
-                    " is caught");
-        }
-
-
-        return lista;
-    }
 
 
 
