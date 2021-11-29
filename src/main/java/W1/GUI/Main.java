@@ -46,10 +46,7 @@ class MyJPanel extends JPanel{
         return new Dimension(500,500);
     }
 
-    @Override
-    public Dimension getMinimumSize() {
-        return new Dimension(1000,1000);
-    }
+
 }
 class Lekcja3 {
     public static void main(String[] args) {

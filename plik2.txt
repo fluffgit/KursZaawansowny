@@ -1,0 +1,4 @@
+marcin,nowak,27
+anna,kowalska,23
+marek,foch,0
+Mariana,Kajak,62

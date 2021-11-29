@@ -351,8 +351,9 @@ public class Main {
     // zad 11 Dodawaj na mape elementy i jesli dany element jest anagramem jakiegos klucza
     public static Map<String, List<String>> getlistaMap3(ArrayList<String> lista) {
         Map<String, List<String>> map = new HashMap<>();
-
         boolean addNewMapKey = true;
+
+
         for (String listElement : lista) {
             if (!map.isEmpty()) {
                 for (String tempKey1 : map.keySet()) {
