@@ -8,7 +8,16 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception{
-       File plik = new File("plik.txt");
+//       File plik = new File("plik.txt");
+//
+//        int rev =123984;
+//        int return2=0;
+//        for (int i = 4; i !=0 ; rev/=10,i--) {
+//            return2 = return2*10 + rev%10;
+//        }
+//        System.out.println(return2);
+
+
 
 
 
@@ -50,7 +59,7 @@ public class Main {
 //
         //copyfile("test.txt","test2.txt",path,path);
 
-        printSynchro2("test.txt","test2.txt",path,path);
+        //printSynchro2("test.txt","test2.txt",path,path);
 
         //System.out.println(silnia2(5));
         //System.out.println(decimalsToBinary(8));
@@ -134,27 +143,27 @@ public class Main {
         }
     }
 
-    public static void printSynchro2(String fileName,String fileName2, String path, String path2) throws FileNotFoundException {
-        File file = new File(path + "\\" + fileName);
-        File file2 = new File(path2 + "\\" + fileName2);
-        Scanner scanner = new Scanner(file);
-        Scanner scanner2 = new Scanner(file2);
-        System.out.println(file);
-        if (file.exists() && file2.exists()) {
-            while(scanner.hasNextLine() && scanner2.hasNextLine()) {
-                System.out.println(scanner.nextLine()+" "+scanner2.nextLine());
-            }
-
-                if (scanner.hasNextLine()) {
-                    System.out.print(scanner.nextLine());
-                }
-                if (scanner2.hasNextLine()) {
-                    System.out.print(scanner2.nextLine());
-                }
-
-
-        }
-    }
+//    public static void printSynchro2(String fileName,String fileName2, String path, String path2) throws FileNotFoundException {
+//        File file = new File(path + "\\" + fileName);
+//        File file2 = new File(path2 + "\\" + fileName2);
+//        Scanner scanner = new Scanner(file);
+//        Scanner scanner2 = new Scanner(file2);
+//        System.out.println(file);
+//        if (file.exists() && file2.exists()) {
+//            while(scanner.hasNextLine() && scanner2.hasNextLine()) {
+//                System.out.println(scanner.nextLine()+" "+scanner2.nextLine());
+//            }
+//
+//                if (scanner.hasNextLine()) {
+//                    System.out.print(scanner.nextLine());
+//                }
+//                if (scanner2.hasNextLine()) {
+//                    System.out.print(scanner2.nextLine());
+//                }
+//
+//
+//        }
+//    }
 
     public static int silnia(int n){
         int sum=1;

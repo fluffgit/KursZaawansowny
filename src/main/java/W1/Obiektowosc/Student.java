@@ -5,11 +5,11 @@ public class Student extends Person{
     protected int yearOFStudy;
     protected double costOfStudy;
 
-    public Student(String name, String address, String fieldOfStudy, int yearOFStudy, double costOfStudy) {
+    public Student(String name, String address, String fieldOfStudy, int yearOFStudy, double priceOfStudy) {
         super(name, address);
         this.fieldOfStudy = fieldOfStudy;
         this.yearOFStudy = yearOFStudy;
-        this.costOfStudy = costOfStudy;
+        this.costOfStudy = priceOfStudy;
     }
 
     public String getFieldOfStudy() {
@@ -38,7 +38,6 @@ public class Student extends Person{
 
     @Override
     public String toString() {
-        //return getName()+"->"+getAddress()+"->("+fieldOfStudy+","+yearOFStudy+","+costOfStudy+")";
-        return String.format("%s->'%s'->%s->%s->%s",this.name,this.address,fieldOfStudy,yearOFStudy,costOfStudy);
+        return String.format("%s->'%s'->%s->%s->%s",this.name,this.address,this.fieldOfStudy,this.costOfStudy,this.costOfStudy);
     }
 }

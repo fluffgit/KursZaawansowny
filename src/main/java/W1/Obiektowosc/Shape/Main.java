@@ -19,26 +19,31 @@ public class Main {
 //        System.out.printf("%.2f%n",rect2.getArea());
 //
 //
-//        Square sq1 = new Square();
-//        Square sq2 = new Square("yellow",false,4);
-//        System.out.println(sq1);
-//        System.out.println(sq2);
+
+        Square sq2 = new Square("yellow",false,4);
+
+        System.out.println(sq2);
+
+        System.out.printf("%.2f%n",sq2.getArea());
+
+        sq2.setHeight(5);
+
+        System.out.printf("%.2f%n",sq2.getArea());
+
 //
-//        System.out.printf("%.2f%n",sq2.getArea());
-
-
-        Line line1 = new Line(new Point2D(1, 2), new Point2D(3, 4));
-        Line line2 = new Line(5, 6, 7, 8);
-
-        System.out.println(line1.getPoint1());
-        System.out.println(line1.getPoint2());
-
-        System.out.println(line2.getPoint1());
-        System.out.println(line2.getPoint2());
-
-        double dist = line1.distance(new Point2D(2, 0), new Point2D(0, 2));
-        System.out.println(dist);
-        System.out.println(line1);
+//
+//        Line line1 = new Line(new Point2D(1, 2), new Point2D(3, 4));
+//        Line line2 = new Line(5, 6, 7, 8);
+//
+//        System.out.println(line1.getPoint1());
+//        System.out.println(line1.getPoint2());
+//
+//        System.out.println(line2.getPoint1());
+//        System.out.println(line2.getPoint2());
+//
+//        double dist = line1.distance(new Point2D(2, 0), new Point2D(0, 2));
+//        System.out.println(dist);
+//        System.out.println(line1);
 
 
     }

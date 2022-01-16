@@ -1,10 +1,13 @@
 package W1.Obiektowosc.Shape;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Point2D {
 
     protected float x;
     protected float y;
-
 
     public Point2D() {
         this.x = 0;
@@ -16,11 +19,11 @@ public class Point2D {
         this.y = y;
     }
 
-    public float[] getXY() {
-        float[] tab = new float[2];
-        this.x = tab[0];
-        this.y = tab[1];
-        return tab;
+    public List<Float> getXY() {
+        List<Float> lista = new ArrayList<>();
+        lista.add(x);
+        lista.add(y);
+        return  lista;
     }
 
     public float getX() {
@@ -46,6 +49,6 @@ public class Point2D {
 
     @Override
     public String toString() {
-        return "(" + this.x + "," + this.y + ")";
+        return "(" + x + "," + y + ")";
     }
 }

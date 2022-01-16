@@ -5,8 +5,8 @@ public enum Coffee {
     ESPRESSO(0,Roast.DARK),
     AMERICANA(5,Roast.MEDIUM);
 
-    private final int milk;
-    private final Roast roast;
+    int milk;
+    Roast roast;
 
     Coffee(int milk, Roast roast) {
         this.milk = milk;
@@ -20,4 +20,6 @@ public enum Coffee {
     public Roast getRoast() {
         return roast;
     }
+
+
 }

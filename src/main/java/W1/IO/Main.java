@@ -106,9 +106,9 @@ public class Main {
         return films;
     }
 
-    public static Movie stringToObject(String title, String genre, String director, String year){
-        return new Movie(title,genre,director,year);
-    }
+//    public static Movie stringToObject(String title, String genre, String director, String year){
+//        return new Movie(title,genre,director,year);
+//    }
 
     public static User readUsersFromFile(String input) throws Exception{
         String[] split = input.split(",");
